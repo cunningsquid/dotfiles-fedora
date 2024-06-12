@@ -1,0 +1,150 @@
+// -*- mode: json -*-
+
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": [
+		"custom/left-arrow-dark",
+		"clock#1",
+		"clock#2",
+		"clock#3",
+		"custom/right-arrow-dark"
+	],
+	"modules-center": [
+		"custom/left-arrow-dark",
+		"hyprland/workspaces",
+		"hyprland/window",
+		"custom/right-arrow-dark"
+	],
+	"modules-right": [
+		"custom/left-arrow-dark",
+		"pulseaudio",
+		"memory",
+		"cpu",
+    //"temp",
+    "custom/gpu-usage",
+		"disk",
+		"tray",
+		"custom/right-arrow-dark"
+	],
+
+	"custom/left-arrow-dark": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left-arrow-light": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right-arrow-dark": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right-arrow-light": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"format": "{name}"
+	},
+
+	"hyprland/window": {
+		"format": "{title}",
+		"separate-outputs": true
+	},
+
+	"clock#1": {
+		"format": "{:%a}",
+		"tooltip": false
+	},
+	"clock#2": {
+		"interval": 1,
+		"format": "{:%H:%M:%S}",
+		"tooltip": false
+	},
+	"clock#3": {
+		"format": "{:%m-%d}",
+		"tooltip": false
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume:2}%",
+		"format-bluetooth": "{icon}  {volume}%",
+		"format-muted": "MUTE",
+		"format-icons": {
+			"headphones": "",
+			"default": [
+				"",
+				""
+			]
+		},
+		"scroll-step": 5,
+		"on-click": "pamixer -t",
+		"on-click-right": "pavucontrol"
+	},
+	"memory": {
+		"interval": 5,
+		"format": "{icon} Mem {}%",
+    "format-icons": {
+      "default": [
+        "󰍛"
+      ]
+    }
+	},
+	"cpu": {
+		"interval": 5,
+		"format": "{icon} CPU {usage:2}%",
+    "format-icons": {
+      "default": [
+        "󰻠"
+      ]
+    }
+	},
+	//"temp": {
+		//"thermal-zone": 1,
+    //"hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/",
+    //"input-filename": "hwmon1/temp5_input",
+		//"interval": 5,
+    //"critical-threshold": 62,
+		//"format": "{icon} TEMP {temperatureC}°C",
+    //"format-icons": {
+      //"default": [
+        //"",
+        //"",
+        //""
+      //]
+    //}
+	//},
+  "custom/gpu-usage": {
+    "format": "{icon} GPU {}",
+    "exec": "gpu-usage-waybar",
+    "return-type": "json",
+    "format-icons": "󰾲",
+  },
+	"battery": {
+		"states": {
+			"good": 75,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"disk": {
+		"interval": 5,
+		"format": " Disk {percentage_used:2}%",
+		"path": "/"
+	},
+	"tray": {
+		"icon-size": 25
+	}
+}
